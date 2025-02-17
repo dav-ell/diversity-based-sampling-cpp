@@ -30,3 +30,11 @@
 *.exe
 *.out
 *.app
+
+*.h5
+*.hdf5
+*.ann
+.vscode/
+diversity_sampler
+copy_images
+.DS_Store
