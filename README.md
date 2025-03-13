@@ -47,11 +47,22 @@ g++ -std=c++11 main.cpp -o diversity_sampler -lhdf5_cpp -lhdf5
 
 Make sure that the HDF5 libraries are in your library path. You may need to adjust the include/library paths using `-I` and `-L` options if they are not in standard locations.
 
-#### 2. Build `copy_selected_images.cpp`
+#### 2. Build `copy_images.cpp`
 ```bash
-g++ -std=c++17 copy_selected_images.cpp -o copy_images -lhdf5_cpp -lhdf5
+g++ -std=c++17 copy_images.cpp -o copy_images -lhdf5_cpp -lhdf5
 ```
 The above command uses C++17 for filesystem support. Adjust include/library paths if necessary.
+
+Or, if you're having trouble installing HDF5 C++ libraries, use:
+```bash
+docker run --rm -it \
+  -v "$(pwd)":/workspace \
+  -w /workspace \
+  ubuntu:20.04 \
+  bash -c "apt-get update && \
+           apt-get install -y g++ libhdf5-dev && bash"
+# then inside the docker container, run the commands from (1) and (2)
+```
 
 ---
 
